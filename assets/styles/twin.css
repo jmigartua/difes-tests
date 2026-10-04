@@ -1,0 +1,35 @@
+/* The twin site (the test ledger on its own) keeps the mother's typography and layout and changes the
+   palette, so that the two are told apart at a glance: teal accent, warm paper. Loaded after theme.css
+   and site.css, so only the tokens change. */
+:root {
+  --paper: #fbfaf6;
+  --tint: #f1f4f3;
+  --teal: #1f7a8c;          /* the difes teal of the PDFs */
+  --teal-soft: #3a93a4;
+  --amber: #b3552d;         /* the secondary accent: terracotta instead of slate */
+  --line: #d5dad8;
+  --line-soft: #e6eae8;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #121a1c;
+    --tint: #18252a;
+    --teal: #5fbccb;
+    --teal-soft: #7fcbd7;
+    --amber: #e0956f;
+    --line: #2c3c41;
+    --line-soft: #22313a;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #121a1c;
+  --tint: #18252a;
+  --teal: #5fbccb;
+  --teal-soft: #7fcbd7;
+  --amber: #e0956f;
+  --line: #2c3c41;
+  --line-soft: #22313a;
+}
+.topline { background: var(--teal); }
+/* references to pages of the mother site, which is not published: kept as text, greyed, with a hint */
+.offsite { color: var(--ink-faint); border-bottom: 1px dotted var(--line); cursor: help; }

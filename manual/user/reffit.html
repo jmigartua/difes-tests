@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Simulating and fitting · difes test ledger – difes · the test ledger</title>
+<title>Exchanging with RefFIT · difes test ledger – difes · the test ledger</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -165,58 +200,35 @@ window.Quarto = {
 <div class="docs-main">
 
 <header id="title-block-header">
-<h1 class="title">Simulating and fitting</h1>
-<p class="subtitle">From a model to a spectrum, and from a spectrum back to the model’s parameters.</p>
+<h1 class="title">Exchanging with RefFIT</h1>
+<p class="subtitle">RefFIT, Alexey Kuzmenko’s fitting program, as a second reference next to FOCUS: its model table read and written, its quantities, its variational dielectric function, and a protocol that brings its curves back for comparison.</p>
 
 </header>
 
 
-<h2 id="simulating" class="anchored">Simulating</h2>
-<pre><code>difes simulate MODEL.json --kind R --from 100 --to 5000 --n 1000 -o R.txt
-difes simulate MODEL.json --kind T --from 400 --to 4000 --n 2000 --thickness 0.05 -o T.txt
-difes simulate MODEL.json --kind T ... --thickness 0.05 --incoherent -o T.txt
-difes simulate MODEL.json --kind E ... --thickness 1e-4 --substrate METAL.json -o E.txt</code></pre>
-<p>The sample geometry follows from the options:</p>
-<ul>
-<li><strong>no thickness</strong>: an opaque bulk sample; <code>R</code>, <code>E</code> = 1 − R, and the derived quantities <code>eps1</code>, <code>eps2</code>, <code>chi1</code>, <code>chi2</code>, <code>n</code>, <code>k</code>, <code>theta</code>;</li>
-<li><strong><code>--thickness d</code></strong> (cm): a free-standing slab; <code>R</code>, <code>T</code>, <code>E</code> = 1 − R − T, coherent (Airy, with fringes) unless <code>--incoherent</code>, which sums intensities over the multiple reflections;</li>
-<li><strong><code>--thickness d --substrate MODEL2.json</code></strong>: a film of the model on an opaque substrate described by the second model; <code>R</code> and <code>E</code> = 1 − R, no transmission.</li>
-</ul>
-<p>The formulas are in Part II, <a href="../theory/optics.html">From <span class="math inline">\varepsilon</span> to the measured spectrum</a>. The output is a spectrum file; the model, thickness and coherence are recorded in the spectrum’s metadata when the Python interface is used.</p>
-<h2 id="fitting" class="anchored">Fitting</h2>
-<pre><code>difes fit MODEL.json SPECTRUM [SPECTRUM ...] --kind E [--unit U] [--cols 4,6,7] [--range 393 4000]
-          [--sigma S] [--weight W] [--thickness d] [--incoherent] [--substrate MODEL2.json] [--fd]
-          -o FITTED.json [--curve CURVE.txt]</code></pre>
-<p>The fitter minimises</p>
-<p><span class="math display">\chi^2 = \sum_t w_t \sum_i \left(\frac{y_i - f_t(\omega_i;\,\mathbf p)}{\sigma_i}\right)^2</span></p>
-<p>over every <strong>free</strong> parameter of the model (and of the substrate model, when given) with a trust-region least-squares method that honours the bounds. <span class="math inline">\sigma_i</span> is the file’s third column, or the constant given with <code>--sigma</code>, or 1 when neither exists; <span class="math inline">w_t</span> is the term’s weight. Several spectra may be given; each becomes a term with the same kind and options, and they share the model.</p>
-<h3 id="what-the-report-says" class="anchored">What the report says</h3>
-<pre><code>success: `ftol` termination condition is satisfied.
-chi2 = 1234.5   reduced = 1.02   points = 1210   free = 9   nfev = 23   jacobian = analytic
-
-  eps_inf            4.8612  ±   0.0213  (0.44 %)
-  0.drude.wp        15344.2  ±     41.7  (0.27 %)
-  ...
-term 0: cr_pure_500C [E] weight 1  rms residual 0.0031</code></pre>
-<ul>
-<li><strong>reduced</strong> is <span class="math inline">\chi^2</span> divided by the number of points minus the number of free parameters; near 1 when the uncertainties are realistic and the model adequate. A large value with a small rms residual means the <span class="math inline">\sigma</span> column is too small, not that the fit is bad.</li>
-<li>The <strong>errors</strong> are 1 <span class="math inline">\sigma</span>, from the covariance <span class="math inline">\left(J^\mathsf T J\right)^{-1}</span> scaled by the reduced <span class="math inline">\chi^2</span>. They are meaningful when the fit converged and the parameters are not degenerate; a relative error of hundreds of percent flags a parameter the data do not determine (the two-Drude description of pure chromium is such a case).</li>
-<li><strong>jacobian</strong> says whether analytic derivatives were used. They are available for Drude, Lorentz and Gaussian terms on bulk <code>R</code>, <code>E</code>, <code>eps</code> and <code>chi</code> spectra; slabs, films, four-parameter modes and expression terms use finite differences. <code>--fd</code> forces finite differences, useful to cross-check.</li>
-<li><strong>rms residual</strong> is the root-mean-square difference between data and fit, in the units of the spectrum.</li>
-</ul>
-<p>The fitted model is written to <code>-o</code> with the fitted values and errors in place of the starting ones; <code>--curve</code> writes the fitted curve on the data’s grid.</p>
-<h3 id="controlling-the-fit" class="anchored">Controlling the fit</h3>
-<ul>
-<li><strong>Freeze</strong> a parameter with <code>"frozen": true</code> in the model file; it keeps its value and is not exposed to the optimiser. Typical use: fix <span class="math inline">\varepsilon_\infty</span> from the literature, or fit dampings only after positions are found.</li>
-<li><strong>Bound</strong> a parameter with <code>lower</code> and <code>upper</code>; the optimiser never leaves the box. Narrow bounds around a starting value are the way to keep a weak oscillator from wandering.</li>
-<li><strong>Weight</strong> a spectrum with <code>--weight</code>; with several spectra of different kinds (a reflectivity and an emissivity of the same sample) weights balance their numbers of points and noise.</li>
-<li><strong>Passivity</strong> of the four-parameter model, <span class="math inline">\sum_j(\gamma_{LO,j} - \gamma_{TO,j}) \ge 0</span>, is enforced as a penalty; the Python interface exposes its scale.</li>
-<li>The expert’s usual sequence is: freeze everything but <span class="math inline">\varepsilon_\infty</span> and the strongest oscillator, fit; free positions, fit; free dampings, fit; free everything, fit. A session (next pages) records such a sequence as a graph that re-evaluates when a starting value changes.</li>
-</ul>
-<h3 id="linked-parameters" class="anchored">Linked parameters</h3>
-<p>A temperature series shares <span class="math inline">\varepsilon_\infty</span> or a phonon position between spectra. In Python, <code>link_parameters([m1, m2, m3], "eps_inf")</code> makes the three models point to one parameter object; the fitter then adjusts it once for all of them. The command line does not expose linking yet; use a short script or a session.</p>
-<h2 id="worked-example-the-oxidised-chromium-at-500-c" class="anchored">Worked example: the oxidised chromium at 500 °C</h2>
-<p>The example script <code>examples/cr_oxidised_guided_fit.py</code> fits the group’s emissivity of oxidised chromium with a film-on-substrate model: the substrate is the pure metal (<span class="math inline">\varepsilon_\infty</span> and two Drude terms from the TFG report, Table 4), the film a set of Lorentz oscillators (Table 6) with a thickness. <code>examples/focus_comparison.py</code> evaluates FOCUS’s published parameters with difes and compares with FOCUS’s fitted curve: the two programs agree to 0.2–0.75 % above 450 <span class="math inline">\mathrm{cm}^{-1}</span>, which is the transcription precision of the tables. The remaining 1 % at 400–450 <span class="math inline">\mathrm{cm}^{-1}</span> is discussed in the <span class="offsite" title="On the ftir apps ecosystem site, the project&#x27;s working site, which is not published yet">log</span>.</p>
+<p class="lede">RefFIT is the other program the group uses: Windows, free, a Drude–Lorentz table with special line shapes, a variational dielectric function, multilayers and ellipsometry, fitted by Levenberg–Marquardt with confidence limits. difes does not run it or copy it. It reads what RefFIT writes, writes what RefFIT reads, implements its methods where difes lacked them, and gives a RefFIT user a macro that produces the curves difes is compared with. The module is <code>difes.reffit</code>; the method is <code>difes.vdf</code>.</p>
+<h2 id="reffits-model-as-a-difes-model" class="anchored">RefFIT’s model as a difes model</h2>
+<p>RefFIT’s “Dielectric function” model is a field <em>Einf</em> and a table of rows <em>(Wo, Wp, G)</em>. An ordinary row is a Lorentz oscillator <span class="math inline">\omega_p^2/(\omega_0^2 - \omega^2 - i\gamma\omega)</span>, a Drude term when <em>Wo</em> is 0, in <span class="math inline">\mathrm{cm}^{-1}</span> and with the same sign convention as difes, so the table maps term by term:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> difes <span class="im">import</span> reffit</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> reffit.model_from_table(<span class="fl">4.993</span>, [(<span class="dv">0</span>, <span class="fl">1356.4</span>, <span class="fl">3872.6</span>), (<span class="fl">238.68</span>, <span class="fl">1074.2</span>, <span class="fl">8.6534</span>)])   <span class="co"># the manual's Fig. 4-5</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>einf, rows <span class="op">=</span> reffit.table_from_model(m)                                             <span class="co"># and back</span></span></code></pre></div>
+<p>A row whose <em>Wo</em> is a negative integer is a <em>code</em> for a special function (the manual’s Table 4-3), its parameters in the <em>Wp</em> and <em>G</em> columns of that row and sometimes of the next. difes handles −9 (Drude with signed weight), −10 (constant), −25/−26 and the like (Lorentz with signed weight), −27/−28 (difference of two Lorentzians), −55/−56 (Tauc–Lorentz), −65/−66 (Fano-shaped Lorentz) and −1000/−1001/−1002 (the factorised TO–LO formula, which becomes difes’s four-parameter modes). A code it does not handle, such as the cuprate formulas, the gapped Drude or the electron–boson model, raises an error naming the code, as the OSML reader does for FOCUS profiles.</p>
+<p>RefFIT’s model file (RFM) is binary and undocumented. What RefFIT writes in text on every save is a listing (ASC) and a line of <code>PAR.DAT</code>, “<em>name chi-square Einf Wo₁ Wp₁ G₁ Wo₂ Wp₂ G₂ …</em>”; <code>reffit.read_par_dat()</code> turns each line into a model, and <code>difes reffit par --file PAR.DAT --json out/</code> writes them as difes models.</p>
+<h2 id="reffits-quantities-and-outputs" class="anchored">RefFIT’s quantities and outputs</h2>
+<p><code>reffit.quantity_reffit(abbrev, eps, w)</code> computes RefFIT’s output abbreviations from <span class="math inline">\varepsilon</span>: R, Rph, E1, E2, S1 and S2 (conductivity in <span class="math inline">\Omega^{-1}\mathrm{cm}^{-1}</span>, <span class="math inline">\omega\varepsilon''/60</span>), N1, N2, PD, LF, AC. <code>reffit.extended_drude(eps, w, wp, eps_inf)</code> gives the outputs of RefFIT’s model “Extended Drude”: the frequency-dependent scattering rate <span class="math inline">1/\tau(\omega) = -(\omega_p^2/\omega)\,\mathrm{Im}[1/(\varepsilon - \varepsilon_\infty)]</span> and the mass ratio <span class="math inline">m^*/m = -(\omega_p^2/\omega^2)\,\mathrm{Re}[1/(\varepsilon - \varepsilon_\infty)]</span>; for a pure Drude term they are <span class="math inline">\gamma</span> and 1 at every frequency, which is the test.</p>
+<h2 id="the-variational-dielectric-function" class="anchored">The variational dielectric function</h2>
+<p>RefFIT’s model-independent <span class="math inline">\varepsilon</span> from reflectivity, or from any quantity, is in difes as a term and a recipe (the <a href="../theory/kramers-kronig.html">theory page</a> has the construction):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> difes <span class="im">import</span> vdf_fit</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> vdf_fit(spectrum, base_model)        <span class="co"># base_model frozen, the variational function added and fitted</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>res.epsilon, res.omega                     <span class="co"># eps on the anchor mesh; res.fit is the FitResult</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>vdf_fit([e1_spectrum, e2_spectrum], <span class="va">None</span>, kk<span class="op">=</span><span class="va">False</span>)   <span class="co"># the unconstrained form on two quantities</span></span></code></pre></div>
+<p>Use <code>every=2</code> for a sparser mesh when the result oscillates, <code>nonnegative=True</code> for a fit without a base model.</p>
+<h2 id="the-comparison-protocol" class="anchored">The comparison protocol</h2>
+<p>What makes RefFIT a <em>reference</em> is its own output on a case difes can compute too. The protocol writes everything a RefFIT user needs:</p>
+<pre><code>difes reffit protocol --data R.txt --quantity R --model model.json --out reffit_protocol</code></pre>
+<p>The folder holds <code>DATA.DAT</code> (three columns X, Y, Yerr) and <code>difes.RFS</code>, a macro in RefFIT’s macro language that loads the dataset, sets the model row by row with <code>SetModelParam</code>, exports R, E1 and E2 as text with <code>ExportModelCurve</code>, and saves the model. The RefFIT user runs <code>REFFIT.EXE difes.RFS</code> in that folder and sends back the exported <code>difes_*.DAT</code>, the ASC listing and <code>PAR.DAT</code>. <code>reffit.read_export()</code> reads the curves; the comparison with difes’s evaluation of the same table on the same grid is then number against number, as with FOCUS’s exports. One point is to be confirmed on a RefFIT machine: whether <code>SetModelParam</code> creates table rows or only edits them; if not, the macro’s <code>--rfm</code> variant loads a model file saved in RefFIT instead.</p>
+<h2 id="what-is-not-covered" class="anchored">What is not covered</h2>
+<p>RefFIT’s multilayer and ellipsometry models, its plate model with partial coherence, its magneto-optics, and the special functions named above. The ones the group needs will be added when a RefFIT project asks for them.</p>
 
 
 <!-- Closes the reading column opened by _gen/docs-nav.html, adds the right

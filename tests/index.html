@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <button class="docs-fold" type="button" data-fold="nav" aria-label="Hide the navigation" title="Hide the navigation">‹</button>
 <details class="group" open=""><summary class="t">Ledger</summary><ul><li><a href="../tests/index.html">The test ledger, difes's presentation card</a></li></ul></details>
 <details class="group" open=""><summary class="t">Validation</summary><ul><li><a href="../validation/index.html">Against FOCUS, on Irati's data</a></li><li><a href="../validation/irati-path.html">Irati's path, step by step</a></li><li><a href="../validation/papers.html">Published works, solved again</a></li><li><a href="../validation/focus-samples.html">FOCUS's own sample projects</a></li><li><a href="../validation/literature.html">The FOCUS literature, reproduced</a></li></ul></details>
-<details class="group" open=""><summary class="t">Manual</summary><div class="sub"><div class="st">Using difes</div><ul><li><a href="../manual/index.html">About the manual</a></li><li><a href="../manual/user/getting-started.html">Getting started</a></li><li><a href="../manual/user/spectra-models.html">Spectra and models</a></li><li><a href="../manual/user/simulate-fit.html">Simulating and fitting</a></li><li><a href="../manual/user/kramers-kronig.html">Kramers–Kronig and CFRC</a></li><li><a href="../manual/user/language-sessions.html">Formulas, sessions, views, libraries</a></li><li><a href="../manual/user/focus-exchange.html">Exchanging with FOCUS</a></li><li><a href="../manual/user/shell.html">The shell</a></li><li><a href="../manual/user/bench.html">The Bench</a></li><li><a href="../manual/user/digitise.html">Digitising figures</a></li><li><a href="../manual/user/api.html">Python reference</a></li></ul></div><div class="sub"><div class="st">Theoretical basis</div><ul><li><a href="../manual/theory/index.html">Scope and conventions</a></li><li><a href="../manual/theory/response.html">The dielectric response</a></li><li><a href="../manual/theory/models.html">Models of the dielectric function</a></li><li><a href="../manual/theory/optics.html">From $\varepsilon$ to the measured spectrum</a></li><li><a href="../manual/theory/kramers-kronig.html">Kramers–Kronig on a finite range</a></li><li><a href="../manual/theory/fitting.html">Least-squares fitting</a></li><li><a href="../manual/theory/instrument.html">The measurement</a></li><li><a href="../manual/theory/references.html">References</a></li></ul></div></details>
+<details class="group" open=""><summary class="t">Manual</summary><div class="sub"><div class="st">Using difes</div><ul><li><a href="../manual/index.html">About the manual</a></li><li><a href="../manual/user/getting-started.html">Getting started</a></li><li><a href="../manual/user/spectra-models.html">Spectra and models</a></li><li><a href="../manual/user/simulate-fit.html">Simulating and fitting</a></li><li><a href="../manual/user/kramers-kronig.html">Kramers–Kronig and CFRC</a></li><li><a href="../manual/user/language-sessions.html">Formulas, sessions, views, libraries</a></li><li><a href="../manual/user/focus-exchange.html">Exchanging with FOCUS</a></li><li><a href="../manual/user/reffit.html">Exchanging with RefFIT</a></li><li><a href="../manual/user/shell.html">The shell</a></li><li><a href="../manual/user/bench.html">The Bench</a></li><li><a href="../manual/user/digitise.html">Digitising figures</a></li><li><a href="../manual/user/api.html">Python reference</a></li></ul></div><div class="sub"><div class="st">Theoretical basis</div><ul><li><a href="../manual/theory/index.html">Scope and conventions</a></li><li><a href="../manual/theory/response.html">The dielectric response</a></li><li><a href="../manual/theory/models.html">Models of the dielectric function</a></li><li><a href="../manual/theory/optics.html">From $\varepsilon$ to the measured spectrum</a></li><li><a href="../manual/theory/kramers-kronig.html">Kramers–Kronig on a finite range</a></li><li><a href="../manual/theory/fitting.html">Least-squares fitting</a></li><li><a href="../manual/theory/instrument.html">The measurement</a></li><li><a href="../manual/theory/references.html">References</a></li></ul></div></details>
 <details class="group" open=""><summary class="t">Documents</summary><ul><li><a href="../assets/documents/test-ledger.pdf">The test ledger (PDF)</a></li><li><a href="../assets/documents/validation-focus.pdf">difes against FOCUS, for Irati (PDF)</a></li></ul></details>
 </nav>
 <div class="docs-main">
@@ -130,14 +130,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <p class="lede">A fit program gives three things: the curve it draws for a model, the parameters it stops at, and the way a person reaches them. The question that matters to someone who has used FOCUS every day is not whether difes is modern but whether it is right. This ledger answers it test by test. Each record says what was asked, what difes was compared against and how strong that reference is, what data were used and where they come from, what was done, what came out, and whether the objective was met, on a five-level scale. One source holds the records (<code>data/tests.yml</code>); this page, the card pages and the <a href="../assets/documents/test-ledger.pdf">PDF of the whole ledger</a> are generated from it, so every future test is one more entry.</p>
 <div class="net-stats net-stats-grid tstats" id="tstats">
-  <div class="net-stat" role="button" tabindex="0" data-filter="all" title="Show only these tests"><div class="v">31</div><div class="k">tests in the ledger</div></div>
-  <div class="net-stat" role="button" tabindex="0" data-filter="run" title="Show only these tests"><div class="v">28</div><div class="k">run; the rest blocked and listed</div></div>
-  <div class="net-stat" role="button" tabindex="0" data-filter="A" title="Show only these tests"><div class="v">13</div><div class="k">exact (grade A)</div></div>
+  <div class="net-stat" role="button" tabindex="0" data-filter="all" title="Show only these tests"><div class="v">34</div><div class="k">tests in the ledger</div></div>
+  <div class="net-stat" role="button" tabindex="0" data-filter="run" title="Show only these tests"><div class="v">30</div><div class="k">run; the rest blocked and listed</div></div>
+  <div class="net-stat" role="button" tabindex="0" data-filter="A" title="Show only these tests"><div class="v">15</div><div class="k">exact (grade A)</div></div>
   <div class="net-stat" role="button" tabindex="0" data-filter="Afocus" title="Show only these tests"><div class="v">7</div><div class="k">exact against FOCUS's own output or figures</div></div>
   <div class="net-stat" role="button" tabindex="0" data-filter="B" title="Show only these tests"><div class="v">7</div><div class="k">within the data (B)</div></div>
   <div class="net-stat" role="button" tabindex="0" data-filter="C" title="Show only these tests"><div class="v">4</div><div class="k">explained (C)</div></div>
   <div class="net-stat" role="button" tabindex="0" data-filter="D" title="Show only these tests"><div class="v">4</div><div class="k">open, waiting for an author (D)</div></div>
-  <div class="net-stat" role="button" tabindex="0" data-filter="E" title="Show only these tests"><div class="v">3</div><div class="k">blocked (E)</div></div>
+  <div class="net-stat" role="button" tabindex="0" data-filter="E" title="Show only these tests"><div class="v">4</div><div class="k">blocked (E)</div></div>
 </div>
 <h2 id="how-to-read-the-ledger" class="anchored">How to read the ledger</h2>
 <p>Each test has a <strong>card</strong> below and a page of its own. The card shows the identifier, the grade, the class of reference, the question the test asks and the one-line verdict. The page holds the full record:</p>
@@ -250,6 +250,9 @@ document.addEventListener("DOMContentLoaded", function () {
 <a class="tcard tcard-E" href="T29.html" data-grade="E" data-klass="III"><div class="trow"><span class="tid">T29</span><span class="grade grade-E" title="the test cannot be run yet, and the reason is stated">E · blocked</span><span class="klass">class III</span></div><h3 class="anchored">Papers that cannot be reproduced yet</h3><p class="obj">Which of the 18 FOCUS papers held cannot be tested, and why?</p><p class="res">Not achieved, by lack of inputs rather than of means: each becomes an exact comparison the day an author's export or the external table arrives.</p><div class="tfoot">2026-10-04 · difes 0.16.0</div></a>
 <a class="tcard tcard-E" href="T30.html" data-grade="E" data-klass="I"><div class="trow"><span class="tid">T30</span><span class="grade grade-E" title="the test cannot be run yet, and the reason is stated">E · blocked</span><span class="klass">class I</span></div><h3 class="anchored">What difes does not have yet</h3><p class="obj">Which FOCUS capabilities have no difes counterpart to test?</p><p class="res">Not achieved: the roadmap items that the ledger makes visible.</p><div class="tfoot">2026-10-04 · difes 0.16.0</div></a>
 <a class="tcard tcard-E" href="T31.html" data-grade="E" data-klass="I"><div class="trow"><span class="tid">T31</span><span class="grade grade-E" title="the test cannot be run yet, and the reason is stated">E · blocked</span><span class="klass">class I</span></div><h3 class="anchored">The FOCUS expert's everyday project</h3><p class="obj">Opened in difes in front of its author, does one of Iñigo González de Arrieta's everyday FOCUS projects compute the same curves and refit to the same parameters?</p><p class="res">Not yet run: the demonstration that counts most, and the brief's first request.</p><div class="tfoot">2026-10-04 · difes 0.16.0</div></a>
+<a class="tcard tcard-A" href="T32.html" data-grade="A" data-klass="IV"><div class="trow"><span class="tid">T32</span><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span><span class="klass">class IV</span></div><h3 class="anchored">The variational dielectric function, RefFIT's method, on a known case</h3><p class="obj">Does difes's implementation of Kuzmenko's variational dielectric function recover a known <span class="math inline">\(\varepsilon\)</span> from reflectivity alone, with RefFIT's two-step recipe, and is its basis causal to the digits?</p><p class="res">Achieved against physics: the method is in difes and does what the manual says it does.</p><div class="tfoot">2026-10-04 · difes 0.17.0</div></a>
+<a class="tcard tcard-A" href="T33.html" data-grade="A" data-klass="IV"><div class="trow"><span class="tid">T33</span><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span><span class="klass">class IV</span></div><h3 class="anchored">RefFIT's model table and its line shapes</h3><p class="obj">Does a RefFIT model, Einf plus rows of (Wo, Wp, G) with the special codes, map onto a difes model term by term, and are RefFIT's two extra line shapes implemented correctly?</p><p class="res">Achieved: RefFIT's formulas are in difes as the manual states them; what is not implemented (cuprate formulas, gapped Drude, power law, electron–boson, Tanguy) is named when met.</p><div class="tfoot">2026-10-04 · difes 0.17.0</div></a>
+<a class="tcard tcard-E" href="T34.html" data-grade="E" data-klass="I"><div class="trow"><span class="tid">T34</span><span class="grade grade-E" title="the test cannot be run yet, and the reason is stated">E · blocked</span><span class="klass">class I</span></div><h3 class="anchored">RefFIT's own output: the comparison protocol, waiting for a RefFIT user</h3><p class="obj">Given the same model and the same data, do RefFIT's computed curves, its fitted parameters and its variational <span class="math inline">\(\varepsilon\)</span> agree with difes's?</p><p class="res">Not yet run: the class I test for RefFIT, the counterpart of what FOCUS's exports gave.</p><div class="tfoot">2026-10-04 · difes 0.17.0</div></a>
 </div>
 <script>
 (function () {
@@ -301,7 +304,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <tr class="even">
 <td>Drude term</td>
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
-<td class="tlinks"><a href="T01.html">T01</a>, <a href="T08.html">T08</a>, <a href="T09.html">T09</a>, <a href="T11.html">T11</a>, <a href="T27.html">T27</a></td>
+<td class="tlinks"><a href="T01.html">T01</a>, <a href="T08.html">T08</a>, <a href="T09.html">T09</a>, <a href="T11.html">T11</a>, <a href="T27.html">T27</a>, <a href="T33.html">T33</a></td>
 </tr>
 <tr class="odd">
 <td>Extended (double-damping) Drude</td>
@@ -311,12 +314,12 @@ document.addEventListener("DOMContentLoaded", function () {
 <tr class="even">
 <td>Lorentz oscillator (FOCUS phonon-3p)</td>
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
-<td class="tlinks"><a href="T01.html">T01</a>, <a href="T08.html">T08</a>, <a href="T10.html">T10</a>, <a href="T11.html">T11</a></td>
+<td class="tlinks"><a href="T01.html">T01</a>, <a href="T08.html">T08</a>, <a href="T10.html">T10</a>, <a href="T11.html">T11</a>, <a href="T33.html">T33</a></td>
 </tr>
 <tr class="odd">
 <td>Four-parameter factorised mode (phonon-4p)</td>
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
-<td class="tlinks"><a href="T01.html">T01</a>, <a href="T06.html">T06</a>, <a href="T16.html">T16</a>, <a href="T23.html">T23</a>, <a href="T24.html">T24</a>, <a href="T25.html">T25</a>, <a href="T26.html">T26</a>, <a href="T28.html">T28</a></td>
+<td class="tlinks"><a href="T01.html">T01</a>, <a href="T06.html">T06</a>, <a href="T16.html">T16</a>, <a href="T23.html">T23</a>, <a href="T24.html">T24</a>, <a href="T25.html">T25</a>, <a href="T26.html">T26</a>, <a href="T28.html">T28</a>, <a href="T33.html">T33</a></td>
 </tr>
 <tr class="even">
 <td>Anharmonic phonon, Gaussian self-energy (phonon-anharmonic)</td>
@@ -352,6 +355,16 @@ document.addEventListener("DOMContentLoaded", function () {
 <td>Kurosawa (LO/TO) mode</td>
 <td><span class="grade grade-B" title="curves agree within the data's own scatter or the digitisation precision; parameters agree where the problem is well posed">B · within the data</span></td>
 <td class="tlinks"><a href="T21.html">T21</a>, <a href="T22.html">T22</a></td>
+</tr>
+<tr class="odd">
+<td>Fano-shaped Lorentz oscillator (RefFIT codes −65/−66)</td>
+<td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
+<td class="tlinks"><a href="T33.html">T33</a></td>
+</tr>
+<tr class="even">
+<td>Tauc–Lorentz oscillator (RefFIT codes −55/−56)</td>
+<td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
+<td class="tlinks"><a href="T33.html">T33</a></td>
 </tr>
 <tr class="odd">
 <td>lorentzian-kkg, PearsonVII, area-normalised peaks</td>
@@ -422,12 +435,12 @@ document.addEventListener("DOMContentLoaded", function () {
 <tr class="odd">
 <td>Forward evaluation of a published or exported model</td>
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
-<td class="tlinks"><a href="T01.html">T01</a>, <a href="T02.html">T02</a>, <a href="T04.html">T04</a>, <a href="T06.html">T06</a>, <a href="T07.html">T07</a>, <a href="T08.html">T08</a>, <a href="T11.html">T11</a>, <a href="T12.html">T12</a>, <a href="T13.html">T13</a>, <a href="T16.html">T16</a>, <a href="T17.html">T17</a>, <a href="T18.html">T18</a>, <a href="T19.html">T19</a>, <a href="T20.html">T20</a>, <a href="T22.html">T22</a>, <a href="T23.html">T23</a>, <a href="T24.html">T24</a>, <a href="T25.html">T25</a></td>
+<td class="tlinks"><a href="T01.html">T01</a>, <a href="T02.html">T02</a>, <a href="T04.html">T04</a>, <a href="T06.html">T06</a>, <a href="T07.html">T07</a>, <a href="T08.html">T08</a>, <a href="T11.html">T11</a>, <a href="T12.html">T12</a>, <a href="T13.html">T13</a>, <a href="T16.html">T16</a>, <a href="T17.html">T17</a>, <a href="T18.html">T18</a>, <a href="T19.html">T19</a>, <a href="T20.html">T20</a>, <a href="T22.html">T22</a>, <a href="T23.html">T23</a>, <a href="T24.html">T24</a>, <a href="T25.html">T25</a>, <a href="T32.html">T32</a></td>
 </tr>
 <tr class="even">
 <td>Recovery of known parameters from a perturbed start</td>
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
-<td class="tlinks"><a href="T04.html">T04</a>, <a href="T16.html">T16</a>, <a href="T17.html">T17</a></td>
+<td class="tlinks"><a href="T04.html">T04</a>, <a href="T16.html">T16</a>, <a href="T17.html">T17</a>, <a href="T32.html">T32</a></td>
 </tr>
 <tr class="odd">
 <td>Refit of published data against the published fit</td>
@@ -460,7 +473,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <tr class="odd">
 <td>KK phase of the reflectance; <span class="math inline">\(\chi'\)</span> from <span class="math inline">\(\chi''\)</span></td>
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
-<td class="tlinks"><a href="T03.html">T03</a></td>
+<td class="tlinks"><a href="T03.html">T03</a>, <a href="T32.html">T32</a></td>
 </tr>
 <tr class="even">
 <td>Multiply-subtractive KK with anchors</td>
@@ -472,28 +485,48 @@ document.addEventListener("DOMContentLoaded", function () {
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
 <td class="tlinks"><a href="T03.html">T03</a></td>
 </tr>
-<tr class="tgroup even">
-<td colspan="3">Exchange with FOCUS</td>
+<tr class="even">
+<td>Variational dielectric function, KK-constrained and free (RefFIT's method)</td>
+<td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
+<td class="tlinks"><a href="T32.html">T32</a></td>
 </tr>
-<tr class="odd">
+<tr class="tgroup odd">
+<td colspan="3">Exchange with FOCUS and RefFIT</td>
+</tr>
+<tr class="even">
 <td>OSML model import (profiles, formulas, libraries)</td>
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
 <td class="tlinks"><a href="T06.html">T06</a>, <a href="T07.html">T07</a>, <a href="T08.html">T08</a>, <a href="T11.html">T11</a>, <a href="T16.html">T16</a>, <a href="T17.html">T17</a>, <a href="T18.html">T18</a>, <a href="T19.html">T19</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>OSML export and round trip</td>
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
-<td class="tlinks"><a href="T06.html">T06</a></td>
+<td class="tlinks"><a href="T06.html">T06</a>, <a href="T33.html">T33</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>A whole FOCUS project as a session</td>
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
 <td class="tlinks"><a href="T11.html">T11</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Spectra read from binary .pjt files</td>
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
 <td class="tlinks"><a href="T15.html">T15</a></td>
+</tr>
+<tr class="even">
+<td>RefFIT's model table (Einf, rows and codes) to and from a difes model</td>
+<td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
+<td class="tlinks"><a href="T33.html">T33</a></td>
+</tr>
+<tr class="odd">
+<td>RefFIT's output quantities and extended-Drude outputs</td>
+<td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
+<td class="tlinks"><a href="T33.html">T33</a></td>
+</tr>
+<tr class="even">
+<td>The RefFIT comparison protocol (dataset, macro, exported curves)</td>
+<td><span class="grade grade-none">no test</span></td>
+<td class="tlinks"><a href="T34.html">T34</a> (blocked)</td>
 </tr>
 <tr class="tgroup odd">
 <td colspan="3">Digitising figures</td>
@@ -545,7 +578,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </table>
 </div>
 <h2 id="where-the-evidence-stands" class="anchored">Where the evidence stands</h2>
-<p>Read from the top down, the ledger says this. Everything difes computes was first checked against physics, with no reference program in sight (T01 to T05). Then, wherever FOCUS wrote its own numbers down, difes met them to the digits of the file: Irati’s final anisotropic model, FOCUS’s quartz, phosphate glass and Raman sample projects, FOCUS’s own libraries and example models, four one-band exports (T06, T11, T15 to T20). Where FOCUS’s result exists only as a drawn curve, difes lands on it to the width of the line, in the fluorides and sapphire of FOCUS’s authors and in the FOCUS expert’s own thesis (T12, T13, T27). The two places where difes and FOCUS differ are understood and quantified: FOCUS’s approximation of the Voigt function, a part in a thousand of a band, and a shallow eight-parameter fit where the two programs stopped in different minima (T18, T20, T28). What remains open is between publications and their own tables, not between the programs (T22, T24 to T26), and what is blocked waits for a file (T29 to T31). The strongest test is the last one on the list, and it has not been run yet: one of Iñigo González de Arrieta’s everyday projects, opened in difes in front of him.</p>
+<p>Read from the top down, the ledger says this. Everything difes computes was first checked against physics, with no reference program in sight (T01 to T05). Then, wherever FOCUS wrote its own numbers down, difes met them to the digits of the file: Irati’s final anisotropic model, FOCUS’s quartz, phosphate glass and Raman sample projects, FOCUS’s own libraries and example models, four one-band exports (T06, T11, T15 to T20). Where FOCUS’s result exists only as a drawn curve, difes lands on it to the width of the line, in the fluorides and sapphire of FOCUS’s authors and in the FOCUS expert’s own thesis (T12, T13, T27). The two places where difes and FOCUS differ are understood and quantified: FOCUS’s approximation of the Voigt function, a part in a thousand of a band, and a shallow eight-parameter fit where the two programs stopped in different minima (T18, T20, T28). What remains open is between publications and their own tables, not between the programs (T22, T24 to T26), and what is blocked waits for a file (T29 to T31, T34). A second reference program entered the ledger on 4 October: RefFIT’s variational dielectric function and its line shapes are in difes and tested against physics (T32, T33); RefFIT’s own output is the next class I test. The strongest test remains T31, and it has not been run yet: one of Iñigo González de Arrieta’s everyday projects, opened in difes in front of him.</p>
 
 
 <!-- Closes the reading column opened by _gen/docs-nav.html, adds the right

@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>T16 · difes test ledger – difes · the test ledger</title>
+<title>Uncertainties, following the GUM · difes test ledger – difes · the test ledger</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,18 +27,53 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<link href="../assets/favicon.svg" rel="icon" type="image/svg+xml">
-<script src="../site_libs/quarto-html/tabby.min.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-html-afe927e19676d0e50b1726048be49fb1.min.css" rel="stylesheet" append-hash="true" data-mode="light">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../assets/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-html-afe927e19676d0e50b1726048be49fb1.min.css" rel="stylesheet" append-hash="true" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <style>html{ scroll-behavior: smooth; }</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -84,10 +119,53 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+  <script defer="" src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<link rel="stylesheet" href="../assets/styles/theme.css">
-<link rel="stylesheet" href="../assets/styles/site.css">
-<link rel="stylesheet" href="../assets/styles/twin.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../assets/styles/theme.css">
+<link rel="stylesheet" href="../../assets/styles/site.css">
+<link rel="stylesheet" href="../../assets/styles/twin.css">
 </head>
 
 <body>
@@ -97,15 +175,15 @@ document.addEventListener("DOMContentLoaded", function () {
 <div class="topline"></div>
 <header class="site-head">
   <div class="site-head__inner">
-    <a href="../index.html" class="wordmark">difes <span class="accent">test</span> ledger
+    <a href="../../index.html" class="wordmark">difes <span class="accent">test</span> ledger
       <span class="wordmark-sub">Every check of the program, graded, with the validation pages and the manual · a twin of the project site, regenerated with it</span>
     </a>
     <nav class="site-nav">
-      <a href="../tests/index.html">Ledger</a>
-      <a href="../validation/index.html">Validation</a>
-      <a href="../manual/index.html">Manual</a>
+      <a href="../../tests/index.html">Ledger</a>
+      <a href="../../validation/index.html">Validation</a>
+      <a href="../../manual/index.html">Manual</a>
       <span class="nav-right">
-        <a href="../assets/documents/test-ledger.pdf" class="nav-dl">Ledger as PDF</a>
+        <a href="../../assets/documents/test-ledger.pdf" class="nav-dl">Ledger as PDF</a>
       </span>
     </nav>
   </div>
@@ -114,41 +192,55 @@ document.addEventListener("DOMContentLoaded", function () {
 <div class="docs">
 <nav class="docs-nav" aria-label="Site sections">
 <button class="docs-fold" type="button" data-fold="nav" aria-label="Hide the navigation" title="Hide the navigation">‹</button>
-<details class="group" open=""><summary class="t">Ledger</summary><ul><li><a href="../tests/index.html">The test ledger, difes's presentation card</a></li></ul></details>
-<details class="group" open=""><summary class="t">Validation</summary><ul><li><a href="../validation/index.html">Against FOCUS, on Irati's data</a></li><li><a href="../validation/irati-path.html">Irati's path, step by step</a></li><li><a href="../validation/papers.html">Published works, solved again</a></li><li><a href="../validation/focus-samples.html">FOCUS's own sample projects</a></li><li><a href="../validation/literature.html">The FOCUS literature, reproduced</a></li></ul></details>
-<details class="group" open=""><summary class="t">Manual</summary><div class="sub"><div class="st">Using difes</div><ul><li><a href="../manual/index.html">About the manual</a></li><li><a href="../manual/user/getting-started.html">Getting started</a></li><li><a href="../manual/user/spectra-models.html">Spectra and models</a></li><li><a href="../manual/user/simulate-fit.html">Simulating and fitting</a></li><li><a href="../manual/user/kramers-kronig.html">Kramers–Kronig and CFRC</a></li><li><a href="../manual/user/language-sessions.html">Formulas, sessions, views, libraries</a></li><li><a href="../manual/user/focus-exchange.html">Exchanging with FOCUS</a></li><li><a href="../manual/user/reffit.html">Exchanging with RefFIT</a></li><li><a href="../manual/user/shell.html">The shell</a></li><li><a href="../manual/user/bench.html">The Bench</a></li><li><a href="../manual/user/digitise.html">Digitising figures</a></li><li><a href="../manual/user/api.html">Python reference</a></li></ul></div><div class="sub"><div class="st">Theoretical basis</div><ul><li><a href="../manual/theory/index.html">Scope and conventions</a></li><li><a href="../manual/theory/response.html">The dielectric response</a></li><li><a href="../manual/theory/models.html">Models of the dielectric function</a></li><li><a href="../manual/theory/optics.html">From $\varepsilon$ to the measured spectrum</a></li><li><a href="../manual/theory/kramers-kronig.html">Kramers–Kronig on a finite range</a></li><li><a href="../manual/theory/fitting.html">Least-squares fitting</a></li><li><a href="../manual/theory/uncertainty.html">Uncertainties, following the GUM</a></li><li><a href="../manual/theory/instrument.html">The measurement</a></li><li><a href="../manual/theory/references.html">References</a></li></ul></div></details>
-<details class="group" open=""><summary class="t">Documents</summary><ul><li><a href="../assets/documents/test-ledger.pdf">The test ledger (PDF)</a></li><li><a href="../assets/documents/validation-focus.pdf">difes against FOCUS, for Irati (PDF)</a></li></ul></details>
+<details class="group" open=""><summary class="t">Ledger</summary><ul><li><a href="../../tests/index.html">The test ledger, difes's presentation card</a></li></ul></details>
+<details class="group" open=""><summary class="t">Validation</summary><ul><li><a href="../../validation/index.html">Against FOCUS, on Irati's data</a></li><li><a href="../../validation/irati-path.html">Irati's path, step by step</a></li><li><a href="../../validation/papers.html">Published works, solved again</a></li><li><a href="../../validation/focus-samples.html">FOCUS's own sample projects</a></li><li><a href="../../validation/literature.html">The FOCUS literature, reproduced</a></li></ul></details>
+<details class="group" open=""><summary class="t">Manual</summary><div class="sub"><div class="st">Using difes</div><ul><li><a href="../../manual/index.html">About the manual</a></li><li><a href="../../manual/user/getting-started.html">Getting started</a></li><li><a href="../../manual/user/spectra-models.html">Spectra and models</a></li><li><a href="../../manual/user/simulate-fit.html">Simulating and fitting</a></li><li><a href="../../manual/user/kramers-kronig.html">Kramers–Kronig and CFRC</a></li><li><a href="../../manual/user/language-sessions.html">Formulas, sessions, views, libraries</a></li><li><a href="../../manual/user/focus-exchange.html">Exchanging with FOCUS</a></li><li><a href="../../manual/user/reffit.html">Exchanging with RefFIT</a></li><li><a href="../../manual/user/shell.html">The shell</a></li><li><a href="../../manual/user/bench.html">The Bench</a></li><li><a href="../../manual/user/digitise.html">Digitising figures</a></li><li><a href="../../manual/user/api.html">Python reference</a></li></ul></div><div class="sub"><div class="st">Theoretical basis</div><ul><li><a href="../../manual/theory/index.html">Scope and conventions</a></li><li><a href="../../manual/theory/response.html">The dielectric response</a></li><li><a href="../../manual/theory/models.html">Models of the dielectric function</a></li><li><a href="../../manual/theory/optics.html">From $\varepsilon$ to the measured spectrum</a></li><li><a href="../../manual/theory/kramers-kronig.html">Kramers–Kronig on a finite range</a></li><li><a href="../../manual/theory/fitting.html">Least-squares fitting</a></li><li><a href="../../manual/theory/uncertainty.html">Uncertainties, following the GUM</a></li><li><a href="../../manual/theory/instrument.html">The measurement</a></li><li><a href="../../manual/theory/references.html">References</a></li></ul></div></details>
+<details class="group" open=""><summary class="t">Documents</summary><ul><li><a href="../../assets/documents/test-ledger.pdf">The test ledger (PDF)</a></li><li><a href="../../assets/documents/validation-focus.pdf">difes against FOCUS, for Irati (PDF)</a></li></ul></details>
 </nav>
 <div class="docs-main">
 
 <header id="title-block-header">
-<h1 class="title">T16 · Quartz A2: five four-parameter modes against FOCUS’s exported curve</h1>
-<p class="subtitle">Is difes’s four-parameter model FOCUS’s, number against number, on FOCUS’s own sample project?</p>
+<h1 class="title">Uncertainties, following the GUM</h1>
+<p class="subtitle">How difes states the uncertainty of a fitted parameter, of a derived quantity and of a curve: an input budget of Type A and Type B components, the law of propagation and the Monte Carlo method of the GUM, a coverage factor, and what none of it can say about a wrong model.</p>
 
 </header>
 
 
-<!-- generated by tools/tests_ledger.py from data/tests.yml; do not edit -->
-<article class="tsheet">
-<div class="trow thead"><span class="tid">T16</span><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span><span class="klass" title="curves exported from FOCUS to seven significant digits, or FOCUS's own formulas">class I · FOCUS's numerical output</span><span class="tmeta">2026-10-04 · difes 0.16.0 · <span class="offsite" title="On the ftir apps ecosystem site, the project&#x27;s working site, which is not published yet">L058</span></span></div>
-<dl class="tfields">
-<dt>Reference</dt><dd>FOCUS's IR-Quartz-A2-4P project exported by Irati as OSML with declarations, with FOCUS's computed reflectivity and dielectric function as text (seven significant digits, six for the parameters).</dd>
-<dt>Data</dt><dd>FOCUS's curve and the measured reflectivity, 99–7 000 <span class="math inline">\(\mathrm{cm}^{-1}\)</span>; the exported model: <span class="math inline">\(\varepsilon_\infty\)</span> 2.403 and five four-parameter modes.</dd>
-<dt>Physics covered</dt><dd><span class="math inline">\(\varepsilon_\infty\)</span> · Π phonon-4p; bulk reflectivity at normal incidence.</dd>
-<dt>Procedure</dt><dd>Evaluate the exported model in difes on FOCUS's grid by two routes (the document's definitions as formulas, difes's native classes) and compare with FOCUS's curve; then refit the measured data from FOCUS's parameters and from a start with every frequency off by 4 % and every damping by 60 %.</dd>
-<dt>Result</dt><dd>Reflectivity: median <span class="math inline">\(8\times10^{-7}\)</span>, worst <span class="math inline">\(1.3\times10^{-4}\)</span> on the steepest edge of the 1073 <span class="math inline">\(\mathrm{cm}^{-1}\)</span> mode, where the six digits of the exported parameters move the edge by the amount seen; <span class="math inline">\(\varepsilon\)</span> to <span class="math inline">\(10^{-3}\)</span> relative at the poles. From FOCUS's parameters nothing moves (rms 0.0046, the data's scatter); from the wrong start FOCUS's values come back, frequencies within 0.01 % in the median.</dd>
-<dt>Verdict</dt><dd>Achieved, exactly. The four-parameter question is closed: the gap between printed tables and drawn fits in the literature (T23 to T26) is outside the model.</dd>
-</dl>
-<figure><img src="../assets/figures/focus_samples_exact.png" alt="Quartz A2 and the phosphate glass: the data, FOCUS's exported curve and difes's evaluation (dashed); the difference times 10⁵; the dielectric function." style="width:100%; border:1px solid var(--line, #ddd);"><figcaption>Quartz A2 and the phosphate glass: the data, FOCUS's exported curve and difes's evaluation (dashed); the difference times <span class="math inline">\(10^{5}\)</span>; the dielectric function.</figcaption></figure>
-<h2 class="anchored">What this test covers</h2><div class="chips"><span class="chip">Four-parameter factorised mode (phonon-4p)</span><span class="chip">Bulk reflectance, normal incidence</span><span class="chip">OSML model import (profiles, formulas, libraries)</span><span class="chip">Forward evaluation of a published or exported model</span><span class="chip">Recovery of known parameters from a perturbed start</span></div>
-<h2 class="anchored">Where to look</h2><ul class="twhere"><li><a href="../validation/focus-samples.html">FOCUS's own sample projects · the exact level</a></li><li><code>difes/examples/focus_samples/exact_tests.py; tests/test_focus_exact.py</code></li></ul>
-<h2 class="anchored">How to read the grade</h2><p class="tscale"><b>A · exact</b>: agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted. <b>Class I · FOCUS's numerical output</b>: curves exported from FOCUS to seven significant digits, or FOCUS's own formulas. The scales are defined on <a href="index.html#the-scales">the ledger's page</a>.</p>
-<nav class="tprevnext">
-<a href="T15.html">← T15</a>
-<a href="index.html">all tests</a>
-<a href="T17.html">T17 →</a>
-</nav>
-</article>
+<p class="lede">A fit program that prints a number without an uncertainty has not finished. FOCUS prints none; RefFIT prints confidence limits whose absolute size its manual calls human-dependent. difes follows the <em>Guide to the expression of uncertainty in measurement</em> (JCGM 100:2008) and its Supplement 1 (JCGM 101:2008): the fitted parameters are the output quantities of a measurement model whose inputs are the measured spectra, each input carries a budget of components, and the budget is propagated to every output in two independent ways. The module is <code>difes.uncertainty</code>.</p>
+<h2 id="the-measurement-model" class="anchored">The measurement model</h2>
+<p>A fit minimises <span class="math inline">\chi^2 = \sum_i w_i\,[y_i - f(\omega_i; \mathbf p)]^2/\sigma_i^2</span> over the parameters <span class="math inline">\mathbf p</span>. The inputs are the measured values <span class="math inline">y_i</span>; their uncertainty has two kinds of component, in the GUM’s terms:</p>
+<ul>
+<li><strong>Type A</strong>, evaluated statistically: the point-to-point scatter <span class="math inline">\sigma_i</span>, the error bars of the spectrum (repeat scans, or an estimate from the residuals). Independent from point to point.</li>
+<li><strong>Type B</strong>, evaluated otherwise: effects that act on the whole spectrum at once and are therefore fully correlated between points. For an infrared reflectance or emissivity measurement they are the calibration of the scale (the reference mirror or the blackbody, a multiplicative factor), a baseline or stray-light offset (additive), the wavenumber scale (a shift, propagated through <span class="math inline">dy/d\omega</span>), and anything else given as an effect vector. For a digitised figure, the digitisation precision is one more.</li>
+</ul>
+<p>A <code>Budget</code> lists the Type B components, each with its standard uncertainty <span class="math inline">u_k</span>, its distribution (normal, or rectangular with <span class="math inline">u = a/\sqrt3</span> for limits <span class="math inline">\pm a</span>, GUM §4.3.7), its degrees of freedom, and the spectra it acts on. Its effect on the spectrum is a vector <span class="math inline">\mathbf g_k</span>: the spectrum itself for a scale, ones for an offset, the derivative for a shift.</p>
+<h2 id="the-law-of-propagation" class="anchored">The law of propagation</h2>
+<p>At the optimum the parameters respond linearly to a small change of the data (GUM §5, the multivariate form of Supplement 2):</p>
+<p><span class="math display">\delta\mathbf p = A\,\delta\mathbf y, \qquad A = (J^{\mathsf T} W J)^{-1} J^{\mathsf T} W,</span></p>
+<p>with <span class="math inline">J = \partial f/\partial\mathbf p</span> the Jacobian of the model curves at the optimum and <span class="math inline">W = \mathrm{diag}(w_i/\sigma_i^2)</span> the fit’s weights. The covariance of the inputs is</p>
+<p><span class="math display">V_y = \mathrm{diag}(\sigma_i^2) + \sum_k u_k^2\,\mathbf g_k \mathbf g_k^{\mathsf T},</span></p>
+<p>and the covariance of the parameters <span class="math inline">V_p = A\,V_y\,A^{\mathsf T}</span>. Its first part, <span class="math inline">(J^{\mathsf T} W J)^{-1}</span>, is the fitter’s own Type A estimate; each Type B component adds <span class="math inline">u_k^2\,(A\mathbf g_k)(A\mathbf g_k)^{\mathsf T}</span>, so its contribution to parameter <span class="math inline">j</span> is <span class="math inline">u_k\,|A\mathbf g_k|_j</span> and the contributions add in quadrature to the combined standard uncertainty <span class="math inline">u_c(p_j) = \sqrt{(V_p)_{jj}}</span>. The off-diagonal elements are the point: in our problems the correlation is the message (the two Drude terms of chromium, <span class="math inline">\varepsilon_\infty</span> against the plasma frequencies), and the report prints every correlation above 0.7.</p>
+<p>The expanded uncertainty is <span class="math inline">U = k\,u_c</span> with <span class="math inline">k = 2</span> by convention, or <span class="math inline">k</span> from the <span class="math inline">t</span>-distribution at the effective degrees of freedom of Welch–Satterthwaite (GUM Annex G), <span class="math inline">\nu_{\mathrm{eff}} = u_c^4 / \sum_i u_i^4/\nu_i</span>, with <span class="math inline">\nu = n - m</span> for the Type A part and the stated <span class="math inline">\nu</span> for each Type B one.</p>
+<p>A <strong>derived quantity</strong> <span class="math inline">q(\mathbf p)</span>, a static dielectric constant, a dc conductivity, a Lyddane–Sachs–Teller ratio, or a whole curve <span class="math inline">\varepsilon(\omega)</span> or <span class="math inline">R(\omega)</span> on a grid, is propagated the same way, <span class="math inline">u^2(q) = \nabla q^{\mathsf T}\,V_p\,\nabla q</span>, which for a curve gives an uncertainty band point by point.</p>
+<h2 id="the-monte-carlo-method" class="anchored">The Monte Carlo method</h2>
+<p>Supplement 1 propagates distributions instead of variances: every input component is drawn from its distribution, the spectra are perturbed (the scale and the offset exactly, the shift and the custom effects through their vectors, the scatter from the error bars), the fit is repeated from the optimum, and the parameters and derived quantities are collected. The coverage interval is read from the percentiles, so it need not be symmetric and does not assume linearity. Because the fitter has analytic derivatives, a few hundred refits of a phonon model take seconds. The two routes agree where the problem is linear, and the Monte Carlo interval is the one to quote where it is not.</p>
+<h2 id="what-none-of-this-can-say" class="anchored">What none of this can say</h2>
+<p>The GUM has no mechanism for an inadequate model. When the reduced <span class="math inline">\chi^2</span> is far above one, either the input uncertainties are understated or the model does not describe the data; the budget cannot tell which, and no interval computed from it covers a wrong model. difes says so in the report, prints the Type A part both as it is and inflated by <span class="math inline">\sqrt{\chi^2_{\mathrm{red}}}</span> (the usual practice, which assumes the first explanation), and leaves the judgement where it belongs. The chromium of the validation pages is the example: the two-Drude model of the TFG fits the emissivity to rms 0.037 where the error bars are 0.002, a reduced <span class="math inline">\chi^2</span> above 200, and the second Drude term is degenerate with the first; the budget shows the scale and offset components dominating every parameter and the correlations near <span class="math inline">\pm 1</span>, which is exactly what a reader should know before quoting those numbers.</p>
+<figure>
+<img src="../../assets/figures/irati_cr_budget.png" alt="Irati's pure chromium: the Table 4 refit with its k = 2 band and the Monte Carlo interval, and the bands on eps1 and eps2" style="width:100%; border:1px solid var(--line, #ddd);">
+<figcaption>Irati's pure chromium at 500 °C: the refitted Table 4 model with its expanded-uncertainty band from a budget of three Type B components (placeholders: 1 % on the emissivity scale, 0.005 offset, 1 <span class="math inline">\(\mathrm{cm}^{-1}\)</span> on the wavenumber scale) and the Monte Carlo interval (dotted); the same bands on <span class="math inline">\(\varepsilon'\)</span> and <span class="math inline">\(\varepsilon''\)</span>. The script is <code>examples/uncertainty/irati_cr_budget.py</code>.</figcaption>
+</figure>
+<h2 id="checking-the-statement" class="anchored">Checking the statement</h2>
+<p>A stated interval has to be checked, and the check is a test in the suite: many synthetic reflectivities are generated from a known model with a 0.3 % scatter and a 1 % scale error drawn anew each time, each is fitted, and its <span class="math inline">k = 2</span> interval computed from a budget that states those two components; the intervals must contain the truth about 95 % of the time for every parameter. They do (<code>tests/test_uncertainty.py</code>, ledger record T35). The same tests show the law of propagation reproducing the fitter’s unscaled errors when the budget is empty, the Monte Carlo spread agreeing with the linear one, and a scale component moving <span class="math inline">\varepsilon_\infty</span> and <span class="math inline">\omega_p</span> together, more than the scatter does, while leaving the oscillator frequency alone, as the physics of a reflectance edge says.</p>
+<h2 id="using-it" class="anchored">Using it</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> difes <span class="im">import</span> Budget, Component, evaluate_uncertainty, fit, FitTerm</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> fit([FitTerm(spectrum, model)])</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>budget <span class="op">=</span> Budget([Component(<span class="st">"E scale"</span>, <span class="st">"scale"</span>, <span class="fl">0.01</span>), Component(<span class="st">"offset"</span>, <span class="st">"offset"</span>, <span class="fl">0.005</span>),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                 Component.rectangular(<span class="st">"wavenumber"</span>, <span class="st">"xshift"</span>, <span class="fl">1.0</span>)])</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> evaluate_uncertainty(res, budget, k<span class="op">=</span><span class="dv">2</span>, monte_carlo<span class="op">=</span><span class="dv">300</span>, seed<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                         derived<span class="op">=</span>{<span class="st">"eps(0)"</span>: <span class="kw">lambda</span> ms: ms[<span class="dv">0</span>].epsilon(np.array([<span class="fl">1e-3</span>])).real[<span class="dv">0</span>]})</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(u.report())<span class="op">;</span> u.to_dict()        <span class="co"># the budget table, correlations, derived quantities, Monte Carlo intervals</span></span></code></pre></div>
+<p>The values of the Type B components are the laboratory’s to state; the example uses placeholders until the group’s emissivity setup is characterised in these terms.</p>
 
 
 <!-- Closes the reading column opened by _gen/docs-nav.html, adds the right
@@ -286,7 +378,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="cite-block">Josu M. Igartua · Departamento de Física, UPV/EHU<br>josu.igartua@ehu.eus</div>
       </div>
       <div><h4 class="anchored">This site</h4><ul>
-        <li><a href="../tests/index.html">The test ledger</a></li><li><a href="../validation/index.html">Against FOCUS</a></li><li><a href="../validation/irati-path.html">Irati's path</a></li><li><a href="../validation/papers.html">Published works</a></li><li><a href="../validation/focus-samples.html">FOCUS's sample projects</a></li><li><a href="../validation/literature.html">The literature</a></li><li><a href="../manual/index.html">The manual: using difes</a></li><li><a href="../manual/theory/index.html">The manual: theoretical basis</a></li></ul></div>
+        <li><a href="../../tests/index.html">The test ledger</a></li><li><a href="../../validation/index.html">Against FOCUS</a></li><li><a href="../../validation/irati-path.html">Irati's path</a></li><li><a href="../../validation/papers.html">Published works</a></li><li><a href="../../validation/focus-samples.html">FOCUS's sample projects</a></li><li><a href="../../validation/literature.html">The literature</a></li><li><a href="../../manual/index.html">The manual: using difes</a></li><li><a href="../../manual/theory/index.html">The manual: theoretical basis</a></li></ul></div>
       <div><h4 class="anchored">Sources</h4><ul>
         <li><a href="https://doi.org/10.1366/000370207783292163">De Sousa Meneses et al. 2007 (CFRC)</a></li>
         <li><a href="https://doi.org/10.1366/0003702041655467">De Sousa Meneses et al. 2004 (semi-quantum models)</a></li>
@@ -653,5 +745,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

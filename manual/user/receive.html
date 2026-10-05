@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>T46 · difes test ledger – difes · the test ledger</title>
+<title>Receiving a colleague’s folder · difes test ledger – difes · the test ledger</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,18 +27,53 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<link href="../assets/favicon.svg" rel="icon" type="image/svg+xml">
-<script src="../site_libs/quarto-html/tabby.min.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-html-afe927e19676d0e50b1726048be49fb1.min.css" rel="stylesheet" append-hash="true" data-mode="light">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../assets/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-html-afe927e19676d0e50b1726048be49fb1.min.css" rel="stylesheet" append-hash="true" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <style>html{ scroll-behavior: smooth; }</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -128,9 +163,9 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../assets/styles/theme.css">
-<link rel="stylesheet" href="../assets/styles/site.css">
-<link rel="stylesheet" href="../assets/styles/twin.css">
+<link rel="stylesheet" href="../../assets/styles/theme.css">
+<link rel="stylesheet" href="../../assets/styles/site.css">
+<link rel="stylesheet" href="../../assets/styles/twin.css">
 </head>
 
 <body>
@@ -140,15 +175,15 @@ window.Quarto = {
 <div class="topline"></div>
 <header class="site-head">
   <div class="site-head__inner">
-    <a href="../index.html" class="wordmark">difes <span class="accent">test</span> ledger
+    <a href="../../index.html" class="wordmark">difes <span class="accent">test</span> ledger
       <span class="wordmark-sub">Every check of the program, graded, with the validation pages and the manual · a twin of the project site, regenerated with it</span>
     </a>
     <nav class="site-nav">
-      <a href="../tests/index.html">Ledger</a>
-      <a href="../validation/index.html">Validation</a>
-      <a href="../manual/index.html">Manual</a>
+      <a href="../../tests/index.html">Ledger</a>
+      <a href="../../validation/index.html">Validation</a>
+      <a href="../../manual/index.html">Manual</a>
       <span class="nav-right">
-        <a href="../assets/documents/test-ledger.pdf" class="nav-dl">Ledger as PDF</a>
+        <a href="../../assets/documents/test-ledger.pdf" class="nav-dl">Ledger as PDF</a>
       </span>
     </nav>
   </div>
@@ -157,41 +192,46 @@ window.Quarto = {
 <div class="docs">
 <nav class="docs-nav" aria-label="Site sections">
 <button class="docs-fold" type="button" data-fold="nav" aria-label="Hide the navigation" title="Hide the navigation">‹</button>
-<details class="group" open=""><summary class="t">Ledger</summary><ul><li><a href="../tests/index.html">The test ledger, difes's presentation card</a></li></ul></details>
-<details class="group" open=""><summary class="t">Validation</summary><ul><li><a href="../validation/index.html">Against FOCUS, on Irati's data</a></li><li><a href="../validation/irati-path.html">Irati's path, step by step</a></li><li><a href="../validation/papers.html">Published works, solved again</a></li><li><a href="../validation/focus-samples.html">FOCUS's own sample projects</a></li><li><a href="../validation/literature.html">The FOCUS literature, reproduced</a></li></ul></details>
-<details class="group" open=""><summary class="t">Manual</summary><div class="sub"><div class="st">Using difes</div><ul><li><a href="../manual/index.html">About the manual</a></li><li><a href="../manual/user/getting-started.html">Getting started</a></li><li><a href="../manual/user/spectra-models.html">Spectra and models</a></li><li><a href="../manual/user/simulate-fit.html">Simulating and fitting</a></li><li><a href="../manual/user/kramers-kronig.html">Kramers–Kronig and CFRC</a></li><li><a href="../manual/user/language-sessions.html">Formulas, sessions, views, libraries</a></li><li><a href="../manual/user/focus-exchange.html">Exchanging with FOCUS</a></li><li><a href="../manual/user/reffit.html">Exchanging with RefFIT</a></li><li><a href="../manual/user/receive.html">Receiving a colleague's folder</a></li><li><a href="../manual/user/shell.html">The shell</a></li><li><a href="../manual/user/bench.html">The Bench</a></li><li><a href="../manual/user/digitise.html">Digitising figures</a></li><li><a href="../manual/user/api.html">Python reference</a></li></ul></div><div class="sub"><div class="st">Theoretical basis</div><ul><li><a href="../manual/theory/index.html">Scope and conventions</a></li><li><a href="../manual/theory/response.html">The dielectric response</a></li><li><a href="../manual/theory/models.html">Models of the dielectric function</a></li><li><a href="../manual/theory/optics.html">From $\varepsilon$ to the measured spectrum</a></li><li><a href="../manual/theory/kramers-kronig.html">Kramers–Kronig on a finite range</a></li><li><a href="../manual/theory/fitting.html">Least-squares fitting</a></li><li><a href="../manual/theory/uncertainty.html">Uncertainties, following the GUM</a></li><li><a href="../manual/theory/instrument.html">The measurement</a></li><li><a href="../manual/theory/references.html">References</a></li></ul></div></details>
-<details class="group" open=""><summary class="t">Documents</summary><ul><li><a href="../assets/documents/test-ledger.pdf">The test ledger (PDF)</a></li><li><a href="../assets/documents/validation-focus.pdf">difes against FOCUS, for Irati (PDF)</a></li></ul></details>
+<details class="group" open=""><summary class="t">Ledger</summary><ul><li><a href="../../tests/index.html">The test ledger, difes's presentation card</a></li></ul></details>
+<details class="group" open=""><summary class="t">Validation</summary><ul><li><a href="../../validation/index.html">Against FOCUS, on Irati's data</a></li><li><a href="../../validation/irati-path.html">Irati's path, step by step</a></li><li><a href="../../validation/papers.html">Published works, solved again</a></li><li><a href="../../validation/focus-samples.html">FOCUS's own sample projects</a></li><li><a href="../../validation/literature.html">The FOCUS literature, reproduced</a></li></ul></details>
+<details class="group" open=""><summary class="t">Manual</summary><div class="sub"><div class="st">Using difes</div><ul><li><a href="../../manual/index.html">About the manual</a></li><li><a href="../../manual/user/getting-started.html">Getting started</a></li><li><a href="../../manual/user/spectra-models.html">Spectra and models</a></li><li><a href="../../manual/user/simulate-fit.html">Simulating and fitting</a></li><li><a href="../../manual/user/kramers-kronig.html">Kramers–Kronig and CFRC</a></li><li><a href="../../manual/user/language-sessions.html">Formulas, sessions, views, libraries</a></li><li><a href="../../manual/user/focus-exchange.html">Exchanging with FOCUS</a></li><li><a href="../../manual/user/reffit.html">Exchanging with RefFIT</a></li><li><a href="../../manual/user/receive.html">Receiving a colleague's folder</a></li><li><a href="../../manual/user/shell.html">The shell</a></li><li><a href="../../manual/user/bench.html">The Bench</a></li><li><a href="../../manual/user/digitise.html">Digitising figures</a></li><li><a href="../../manual/user/api.html">Python reference</a></li></ul></div><div class="sub"><div class="st">Theoretical basis</div><ul><li><a href="../../manual/theory/index.html">Scope and conventions</a></li><li><a href="../../manual/theory/response.html">The dielectric response</a></li><li><a href="../../manual/theory/models.html">Models of the dielectric function</a></li><li><a href="../../manual/theory/optics.html">From $\varepsilon$ to the measured spectrum</a></li><li><a href="../../manual/theory/kramers-kronig.html">Kramers–Kronig on a finite range</a></li><li><a href="../../manual/theory/fitting.html">Least-squares fitting</a></li><li><a href="../../manual/theory/uncertainty.html">Uncertainties, following the GUM</a></li><li><a href="../../manual/theory/instrument.html">The measurement</a></li><li><a href="../../manual/theory/references.html">References</a></li></ul></div></details>
+<details class="group" open=""><summary class="t">Documents</summary><ul><li><a href="../../assets/documents/test-ledger.pdf">The test ledger (PDF)</a></li><li><a href="../../assets/documents/validation-focus.pdf">difes against FOCUS, for Irati (PDF)</a></li></ul></details>
 </nav>
 <div class="docs-main">
 
 <header id="title-block-header">
-<h1 class="title">T46 · RefFIT’s own tutorial, Part 2: four datasets fitted together, RefFIT’s weighted <span class="math inline">\chi^2</span> to the printed digit</h1>
-<p class="subtitle">The manual’s Part 2 fits the reflectivity of <span class="math inline">\mathrm{CeIrIn_{5}}</span> at 35 K together with <span class="math inline">\varepsilon'</span> and <span class="math inline">\varepsilon''</span> from ellipsometry and one dc-conductivity point, each dataset with its own weight. Does difes’s simultaneous fit, with RefFIT’s weights and RefFIT’s default error bar, reproduce the <span class="math inline">\chi^2</span> terms RefFIT prints and land on the models RefFIT saved?</p>
+<h1 class="title">Receiving a colleague’s folder</h1>
+<p class="subtitle">One command takes a folder as a FOCUS or RefFIT user exports it and returns the session, the curve-by-curve comparison, the refits and a report.</p>
 
 </header>
 
 
-<!-- generated by tools/tests_ledger.py from data/tests.yml; do not edit -->
-<article class="tsheet">
-<div class="trow thead"><span class="tid">T46</span><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span><span class="klass" title="curves exported from FOCUS to seven significant digits, or FOCUS's own formulas">class I · FOCUS's numerical output</span><span class="tmeta">2026-10-06 · difes 0.28.0 · <span class="offsite" title="On the ftir apps ecosystem site, the project&#x27;s working site, which is not published yet">L087</span></span></div>
-<dl class="tfields">
-<dt>Reference</dt><dd>TUTORIAL/Part2: R.dat (5758 points, 25–5000 <span class="math inline">\(\mathrm{cm}^{-1}\)</span>), E1.DAT and E2.DAT (301 points each, 6000–36000), S1DC.dat (<span class="math inline">\(\sigma\)</span>_dc = 47 867.9 S/cm at 0.001 <span class="math inline">\(\mathrm{cm}^{-1}\)</span>), MODEL1.RFM (Fig. 3-22, the hand start) and MODEL2.RFM (Fig. 3-26, seven rows); Fig. 3-25 prints the two-row automated fit and its four <span class="math inline">\(\chi^2\)</span> terms (R 140.428, E1 696 775, E2 687 197, S1 <span class="math inline">\(3.6101\times10^{9}\)</span>, total <span class="math inline">\(1.52801\times10^{6}\)</span>, 1603 points); the macro Demo.rfs gives the loading (XMethod 3, 1000 points, XGrid 2) and the weights (1000, 1, 1, <span class="math inline">\(10^{-6}\)</span>).</dd>
-<dt>Data</dt><dd>RefFIT's own files. The reflectivity re-gridded to 1000 points as RefFIT's loader does; the point count 1603 fixes the grid's size, and the printed R term fixes its kind.</dd>
-<dt>Physics covered</dt><dd><span class="math inline">\(\varepsilon_\infty\)</span>, a Drude term and Lorentz oscillators; reflectivity, <span class="math inline">\(\varepsilon'\)</span>, <span class="math inline">\(\varepsilon''\)</span> and <span class="math inline">\(\sigma\)</span>₁ = ν <span class="math inline">\(\varepsilon''\)</span>/60 of the same model, fitted at once.</dd>
-<dt>Procedure</dt><dd>Four fit terms with <span class="math inline">\(\sigma\)</span> = 0.01/√w each (the dc point as an <span class="math inline">\(\varepsilon''\)</span> target with its error transformed); the two-row fit from MODEL1 against Fig. 3-25; the <span class="math inline">\(\chi^2\)</span> terms of the printed model computed on a linear and on a logarithmic grid; MODEL2 refitted from itself (examples/papers/reffit_tutorial/tutorial_part2_simultaneous.py).</dd>
-<dt>Result</dt><dd>XGrid = 2 is a logarithmic grid: on it the printed model's R term is 140.58 against the printed 140.428 (the rounding of the printed parameters), on a linear grid 392. With that grid difes reproduces every printed <span class="math inline">\(\chi^2\)</span> term to 0.1 % and the weighted total, <span class="math inline">\(1.52801\times10^{6}\)</span>, to the printed digit, and the two-row fit from MODEL1 lands on the printed model: 33 542.9 against 33 543, 396.73 against 396.73, 16 964.1 against 16 964, 111 794 against 111 790, 72 521 against 72 522. MODEL2's seven rows are a minimum difes leaves at 0.00 %.</dd>
-<dt>Verdict</dt><dd>Achieved, exactly: RefFIT's weighted multi-dataset <span class="math inline">\(\chi^2\)</span> is difes's, its grid is identified from its own numbers, and the two fitters stop at the same points. Grade A, class I.</dd>
-</dl>
-<figure><img src="../assets/figures/reffit_tutorial_part2.png" alt="CeIrIn₅: reflectivity with MODEL2 and difes's refit (left), ε′ and ε″ from ellipsometry with the same (middle), σ₁ with the dc point (right)." style="width:100%; border:1px solid var(--line, #ddd);"><figcaption><span class="math inline">\(\mathrm{CeIrIn_{5}}\)</span>: reflectivity with MODEL2 and difes's refit (left), <span class="math inline">\(\varepsilon'\)</span> and <span class="math inline">\(\varepsilon''\)</span> from ellipsometry with the same (middle), <span class="math inline">\(\sigma\)</span>₁ with the dc point (right).</figcaption></figure>
-<h2 class="anchored">What this test covers</h2><div class="chips"><span class="chip">Drude term</span><span class="chip">Lorentz oscillator (FOCUS phonon-3p)</span><span class="chip">Bulk reflectance, normal incidence</span><span class="chip">Forward evaluation of a published or exported model</span><span class="chip">Recovery of known parameters from a perturbed start</span><span class="chip">Weighting by measured uncertainties or uniform</span><span class="chip">RefFIT's saved model read: the RFM binary, the ASC listing, PAR.DAT with errors</span><span class="chip">RefFIT's model table (Einf, rows and codes) to and from a difes model</span><span class="chip">RefFIT's output quantities and extended-Drude outputs</span></div>
-<h2 class="anchored">Where to look</h2><ul class="twhere"><li><a href="../manual/user/reffit.html">Exchanging with RefFIT (manual)</a></li><li><code>difes/examples/papers/reffit_tutorial/tutorial_part2_simultaneous.py</code></li></ul>
-<h2 class="anchored">How to read the grade</h2><p class="tscale"><b>A · exact</b>: agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted. <b>Class I · FOCUS's numerical output</b>: curves exported from FOCUS to seven significant digits, or FOCUS's own formulas. The scales are defined on <a href="index.html#the-scales">the ledger's page</a>.</p>
-<nav class="tprevnext">
-<a href="T45.html">← T45</a>
-<a href="index.html">all tests</a>
-<a href="T47.html">T47 →</a>
-</nav>
-</article>
+<h2 id="what-it-is-for" class="anchored">What it is for</h2>
+<p>The strongest test of difes is a colleague’s own work: a project exported from FOCUS with its declarations, the curves FOCUS computed, the spectra it fitted. Such a folder arrives with the names its author chose, and the comparison should be one step, not an afternoon. <code>difes receive</code> is that step:</p>
+<pre><code>difes receive FOLDER [--out DIR] [--sigma 0.005] [--no-refit]</code></pre>
+<p>It reads everything in the folder, decides what each file is, and writes to <code>--out</code> (by default <code>FOLDER/difes_receive</code>) a session file that opens in the app, a report in Markdown and JSON, and a figure.</p>
+<h2 id="what-the-folder-may-hold" class="anchored">What the folder may hold</h2>
+<ul>
+<li><strong>FOCUS</strong> project files (<code>.sml</code>, <code>.osml</code>, exported with embedded declarations), the curves FOCUS exported from its definitions (two or three numeric columns; a third column that is not all zero is the imaginary part of a complex quantity, as in an exported <span class="math inline">\varepsilon</span>), the measured spectra (two or three columns, the third an uncertainty), screenshots.</li>
+<li><strong>RefFIT</strong> model files (<code>.rfm</code>, either layout), their <code>.asc</code> listings, <code>PAR.DAT</code>, curves exported with <code>ExportModelCurve</code> or from a graph (the <code>W R</code>, <code>W E1</code>, <code>W E2</code> headers), the datasets.</li>
+<li>Anything else is listed and left alone.</li>
+</ul>
+<h2 id="what-it-does-with-it" class="anchored">What it does with it</h2>
+<ol type="1">
+<li><strong>Imports every project</strong> into the session: its dielectric-function definitions become models, its other definitions formulas of the session’s library, and a view overlays the reflectances. RefFIT models become model nodes.</li>
+<li><strong>Matches every exported curve to a definition.</strong> By name when a definition’s name is in the file’s; otherwise by the numbers, evaluating every real-valued definition on the export’s own grid and taking the closest, with the second best reported so that an ambiguous match is visible. A table some definition reproduces to a thousandth of its range is an export whatever its name says.</li>
+<li><strong>Compares, number against number</strong>, on FOCUS’s own grid: the maximum and rms difference, the median, and the ratio of the largest difference to what the file’s own seven digits allow at that point (near a steep feature the rounding of <span class="math inline">x</span> alone moves <span class="math inline">y</span>). A ratio near one means the two programs agree to the file’s digits; a ratio far above it names a real difference, which the report then shows.</li>
+<li><strong>Fits the measured spectra</strong> with the project’s model, when the project has one: FOCUS’s model against the data as it is, difes’s refit from FOCUS’s parameters, and difes’s refit from a deliberately wrong start, with the residuals, <span class="math inline">\chi^2_\mathrm{red}</span> and how far the frequencies moved. The fit range is that of the exported curve of the same kind, since FOCUS fits what it draws. When the project holds several models (a film, a substrate, a layer) the geometry is one of FOCUS’s formulas: the exported curves are compared, and the refit is left to the Bench with the layers card.</li>
+<li><strong>Writes</strong> <code>session.json</code> (the models, the formulas, the exports and the spectra as data nodes with relative paths, the refits as fit nodes), <code>report.md</code> and <code>report.json</code>, and <code>curves.png</code>.</li>
+</ol>
+<h2 id="what-it-was-tried-on" class="anchored">What it was tried on</h2>
+<p>The four folders in hand on 6 October 2026 (tests/test_receive.py): FOCUS’s quartz sample as Irati exported it (reflectivity to <span class="math inline">1.3 \times 10^{-4}</span> at the steep edge of the 1073 <span class="math inline">\mathrm{cm}^{-1}</span> mode and <span class="math inline">10^{-6}</span> in the median, the refits staying on FOCUS’s values); the phosphate glass (<span class="math inline">10^{-5}</span>); Irati’s final chromium project with an export whose name does not carry the definition’s, matched by the numbers to <span class="math inline">5.6 \times 10^{-6}</span>; and her RefFIT protocol run, whose exports meet the model read from the <code>.rfm</code> to <span class="math inline">8 \times 10^{-7}</span>. The same command is what Iñigo’s project will go through when it arrives.</p>
+<h2 id="from-python" class="anchored">From Python</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> difes.receive <span class="im">import</span> receive</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>rec <span class="op">=</span> receive(<span class="st">"path/to/folder"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>rec.comparisons      <span class="co"># one dict per exported curve: file, definition, matched_by, max_abs, rms, max_over_rounding, …</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>rec.data             <span class="co"># one dict per measured spectrum: kind, FOCUS's model against it, the refits</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>rec.session_path     <span class="co"># the session to open</span></span></code></pre></div>
 
 
 <!-- Closes the reading column opened by _gen/docs-nav.html, adds the right
@@ -329,7 +369,7 @@ window.Quarto = {
         <div class="cite-block">Josu M. Igartua · Departamento de Física, UPV/EHU<br>josu.igartua@ehu.eus</div>
       </div>
       <div><h4 class="anchored">This site</h4><ul>
-        <li><a href="../tests/index.html">The test ledger</a></li><li><a href="../validation/index.html">Against FOCUS</a></li><li><a href="../validation/irati-path.html">Irati's path</a></li><li><a href="../validation/papers.html">Published works</a></li><li><a href="../validation/focus-samples.html">FOCUS's sample projects</a></li><li><a href="../validation/literature.html">The literature</a></li><li><a href="../manual/index.html">The manual: using difes</a></li><li><a href="../manual/theory/index.html">The manual: theoretical basis</a></li></ul></div>
+        <li><a href="../../tests/index.html">The test ledger</a></li><li><a href="../../validation/index.html">Against FOCUS</a></li><li><a href="../../validation/irati-path.html">Irati's path</a></li><li><a href="../../validation/papers.html">Published works</a></li><li><a href="../../validation/focus-samples.html">FOCUS's sample projects</a></li><li><a href="../../validation/literature.html">The literature</a></li><li><a href="../../manual/index.html">The manual: using difes</a></li><li><a href="../../manual/theory/index.html">The manual: theoretical basis</a></li></ul></div>
       <div><h4 class="anchored">Sources</h4><ul>
         <li><a href="https://doi.org/10.1366/000370207783292163">De Sousa Meneses et al. 2007 (CFRC)</a></li>
         <li><a href="https://doi.org/10.1366/0003702041655467">De Sousa Meneses et al. 2004 (semi-quantum models)</a></li>
@@ -696,5 +736,5 @@ window.Quarto = {
 
 
 
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

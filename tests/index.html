@@ -130,9 +130,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <p class="lede">A fit program gives three things: the curve it draws for a model, the parameters it stops at, and the way a person reaches them. The question that matters to someone who has used FOCUS every day is not whether difes is modern but whether it is right. This ledger answers it test by test. Each record says what was asked, what difes was compared against and how strong that reference is, what data were used and where they come from, what was done, what came out, and whether the objective was met, on a five-level scale. One source holds the records (<code>data/tests.yml</code>); this page, the card pages and the <a href="../assets/documents/test-ledger.pdf">PDF of the whole ledger</a> are generated from it, so every future test is one more entry.</p>
 <div class="net-stats net-stats-grid tstats" id="tstats">
-  <div class="net-stat" role="button" tabindex="0" data-filter="all" title="Show only these tests"><div class="v">44</div><div class="k">tests in the ledger</div></div>
-  <div class="net-stat" role="button" tabindex="0" data-filter="run" title="Show only these tests"><div class="v">41</div><div class="k">run; the rest blocked and listed</div></div>
-  <div class="net-stat" role="button" tabindex="0" data-filter="A" title="Show only these tests"><div class="v">22</div><div class="k">exact (grade A)</div></div>
+  <div class="net-stat" role="button" tabindex="0" data-filter="all" title="Show only these tests"><div class="v">45</div><div class="k">tests in the ledger</div></div>
+  <div class="net-stat" role="button" tabindex="0" data-filter="run" title="Show only these tests"><div class="v">42</div><div class="k">run; the rest blocked and listed</div></div>
+  <div class="net-stat" role="button" tabindex="0" data-filter="A" title="Show only these tests"><div class="v">23</div><div class="k">exact (grade A)</div></div>
   <div class="net-stat" role="button" tabindex="0" data-filter="Afocus" title="Show only these tests"><div class="v">9</div><div class="k">exact against FOCUS's own output or figures</div></div>
   <div class="net-stat" role="button" tabindex="0" data-filter="B" title="Show only these tests"><div class="v">11</div><div class="k">within the data (B)</div></div>
   <div class="net-stat" role="button" tabindex="0" data-filter="C" title="Show only these tests"><div class="v">4</div><div class="k">explained (C)</div></div>
@@ -263,6 +263,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <a class="tcard tcard-B" href="T42.html" data-grade="B" data-klass="III"><div class="trow"><span class="tid">T42</span><span class="grade grade-B" title="curves agree within the data's own scatter or the digitisation precision; parameters agree where the problem is well posed">B · within the data</span><span class="klass">class III</span></div><h3 class="anchored">RefFIT's own tutorial (section 3.1): the LSCO reflectivity from the manual's printed tables</h3><p class="obj">Do the two model tables RefFIT's manual prints in its tutorial regenerate the curves RefFIT drew there, including its dielectric function, and does difes, walking the tutorial's own path (the hand model plus a Drude term at 500/500, then the automated fit), land where RefFIT did? A record made from RefFIT's author's own worked example, not from a user's project.</p><p class="res">Achieved within the data: the manual's tables are the curves the manual shows, dielectric function included, and difes reaches the same curve from the same start by a path that differs where the problem is degenerate (the Drude background below 1000 <span class="math inline">\(\mathrm{cm}^{-1}\)</span>).</p><div class="tfoot">2026-10-04 · difes 0.25.0</div></a>
 <a class="tcard tcard-B" href="T43.html" data-grade="B" data-klass="I"><div class="trow"><span class="tid">T43</span><span class="grade grade-B" title="curves agree within the data's own scatter or the digitisation precision; parameters agree where the problem is well posed">B · within the data</span><span class="klass">class I</span></div><h3 class="anchored">Irati's own RefFIT fits of polished chromium (200 and 500 °C): her models, RefFIT's curves, her data</h3><p class="obj">Do the models a RefFIT user saved regenerate the curves RefFIT drew for them, and what do those fits say against the data they were fitted to: are they minima difes finds too, and what do the data fix? The first RefFIT projects of a group member, sent as 'adibideak' (examples).</p><p class="res">Achieved within the data: what RefFIT computed for her models difes computes to the digits, and where her fits stand against her data is now stated with the degeneracies.</p><div class="tfoot">2026-10-05 · difes 0.26.0</div></a>
 <a class="tcard tcard-B" href="T44.html" data-grade="B" data-klass="II"><div class="trow"><span class="tid">T44</span><span class="grade grade-B" title="curves agree within the data's own scatter or the digitisation precision; parameters agree where the problem is well posed">B · within the data</span><span class="klass">class II</span></div><h3 class="anchored">Iñigo's thesis, Fig. 4.7: the Voigt fit of the Berreman peak, FOCUS's curve and the data read exactly</h3><p class="obj">The third FOCUS fit in the thesis, the one left aside on 4 October: a Voigt function fitted to the 70° directional emittance of the alumina-coated absorber around its Berreman peak, of which the text gives one number, a mean LO frequency of 932 <span class="math inline">\(\pm\)</span> 1 <span class="math inline">\(\mathrm{cm}^{-1}\)</span>. What shape did FOCUS draw, and does difes, fitting that shape to the same points, find the same centre?</p><p class="res">Achieved within the data: the number the thesis quotes is the centre of the curve FOCUS drew, and difes, fitting the same shape to the same points, agrees with it within one standard uncertainty.</p><div class="tfoot">2026-10-05 · difes 0.26.0</div></a>
+<a class="tcard tcard-A" href="T45.html" data-grade="A" data-klass="IV"><div class="trow"><span class="tid">T45</span><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span><span class="klass">class IV</span></div><h3 class="anchored">RefFIT's plate model with partial coherence, against physics</h3><p class="obj">RefFIT's 'Optics of a plate sample' adds the multiply reflected rays of a plate at oblique incidence in amplitude, in intensity, or in a mixture set by a degree of coherence, and gives R, T and the ellipsometric angles. Implemented from the manual's formulas, does it reduce to what difes already had, conserve energy, and behave as the formulas say in every limit?</p><p class="res">Achieved, exactly, against physics: RefFIT's plate optics are in difes with every limit tested; the exact test against RefFIT's own output of this model waits for a project that uses it.</p><div class="tfoot">2026-10-05 · difes 0.27.0</div></a>
 </div>
 <script>
 (function () {
@@ -407,17 +408,17 @@ document.addEventListener("DOMContentLoaded", function () {
 <tr class="odd">
 <td>Incoherent plate: R, T and E (Reflectance-E, Transmittance-E)</td>
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
-<td class="tlinks"><a href="T02.html">T02</a>, <a href="T06.html">T06</a>, <a href="T07.html">T07</a>, <a href="T18.html">T18</a></td>
+<td class="tlinks"><a href="T02.html">T02</a>, <a href="T06.html">T06</a>, <a href="T07.html">T07</a>, <a href="T18.html">T18</a>, <a href="T45.html">T45</a></td>
 </tr>
 <tr class="even">
 <td>Coherent slab</td>
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
-<td class="tlinks"><a href="T02.html">T02</a>, <a href="T06.html">T06</a></td>
+<td class="tlinks"><a href="T02.html">T02</a>, <a href="T06.html">T06</a>, <a href="T45.html">T45</a></td>
 </tr>
 <tr class="odd">
 <td>Fresnel coefficients at oblique incidence (FOCUS libraries)</td>
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
-<td class="tlinks"><a href="T06.html">T06</a></td>
+<td class="tlinks"><a href="T06.html">T06</a>, <a href="T45.html">T45</a></td>
 </tr>
 <tr class="even">
 <td>Anisotropic average <span class="math inline">\(\tfrac{1}{3}\,\varepsilon_\parallel + \tfrac{2}{3}\,\varepsilon_\perp\)</span></td>
@@ -546,7 +547,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <tr class="even">
 <td>RefFIT's output quantities and extended-Drude outputs</td>
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
-<td class="tlinks"><a href="T33.html">T33</a>, <a href="T34.html">T34</a></td>
+<td class="tlinks"><a href="T33.html">T33</a>, <a href="T34.html">T34</a>, <a href="T45.html">T45</a></td>
 </tr>
 <tr class="odd">
 <td>The RefFIT comparison protocol (dataset, macro, exported curves)</td>
@@ -558,48 +559,53 @@ document.addEventListener("DOMContentLoaded", function () {
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
 <td class="tlinks"><a href="T34.html">T34</a>, <a href="T43.html">T43</a></td>
 </tr>
-<tr class="tgroup odd">
+<tr class="odd">
+<td>RefFIT's plate at oblique incidence with partial coherence, psi and delta</td>
+<td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
+<td class="tlinks"><a href="T45.html">T45</a></td>
+</tr>
+<tr class="tgroup even">
 <td colspan="3">Digitising figures</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Bitmap figure, colour mask and frame calibration</td>
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
 <td class="tlinks"><a href="T14.html">T14</a>, <a href="T21.html">T21</a>, <a href="T22.html">T22</a>, <a href="T25.html">T25</a>, <a href="T39.html">T39</a>, <a href="T40.html">T40</a>, <a href="T42.html">T42</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Vector figure, paths read from the PDF</td>
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
 <td class="tlinks"><a href="T12.html">T12</a>, <a href="T13.html">T13</a>, <a href="T14.html">T14</a>, <a href="T24.html">T24</a>, <a href="T27.html">T27</a>, <a href="T28.html">T28</a>, <a href="T44.html">T44</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Axis calibration on tick marks or tick labels</td>
 <td><span class="grade grade-B" title="curves agree within the data's own scatter or the digitisation precision; parameters agree where the problem is well posed">B · within the data</span></td>
 <td class="tlinks"><a href="T14.html">T14</a>, <a href="T22.html">T22</a>, <a href="T40.html">T40</a></td>
 </tr>
-<tr class="tgroup odd">
+<tr class="tgroup even">
 <td colspan="3">Software behaviour</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Spectrum readers, units, conversions</td>
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
 <td class="tlinks"><a href="T05.html">T05</a>, <a href="T15.html">T15</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>The math language (parser, user functions, libraries)</td>
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
 <td class="tlinks"><a href="T05.html">T05</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Session graph, views, adopt and discard</td>
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
 <td class="tlinks"><a href="T05.html">T05</a>, <a href="T36.html">T36</a>, <a href="T38.html">T38</a>, <a href="T41.html">T41</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Command line and local server</td>
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
 <td class="tlinks"><a href="T05.html">T05</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Bench recipes and suggestions</td>
 <td><span class="grade grade-A" title="agreement at the precision of the reference itself: the file's digits or machine precision, nothing fitted">A · exact</span></td>
 <td class="tlinks"><a href="T05.html">T05</a>, <a href="T36.html">T36</a>, <a href="T38.html">T38</a>, <a href="T43.html">T43</a></td>

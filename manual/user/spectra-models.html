@@ -333,6 +333,12 @@ window.Quarto = {
 <p><code>difes model example</code> prints the example model; <code>difes model FILE.json</code> describes a file: every parameter with its bounds, frozen flag and fitted error, and the number of free parameters.</p>
 <h3 id="naming-a-parameter" class="anchored">Naming a parameter</h3>
 <p>Parameters are addressed by path: <code>eps_inf</code>, or <code>INDEX.KIND.NAME</code> with the term’s position, for example <code>1.lorentz.w0</code>. The same paths appear in fit reports, in sessions (<code>set_parameter</code>) and when linking parameters between models.</p>
+<h2 id="a-dielectric-function-from-a-table" class="anchored">A dielectric function from a table</h2>
+<p>Published or measured optical constants enter a model as a <code>TabulatedModel</code>: a table of <span class="math inline">\varepsilon</span> against wavenumber, or of <span class="math inline">n</span> and <span class="math inline">k</span> (also on two different grids, <span class="math inline">k</span> ending where the absorption ends), interpolated linearly and held at the ends, with no free parameters; it is saved inside the model’s JSON and used anywhere a model is, alone or as a component of an effective medium. It is the counterpart of FOCUS’s point lists, evaluated by one vectorised interpolation rather than a search per point.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> difes.models <span class="im">import</span> TabulatedModel, EffectiveMediumModel</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>par <span class="op">=</span> TabulatedModel.from_nk_tables(w_n, n_par, w_k, k_par, name<span class="op">=</span><span class="st">"E parallel c"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>per <span class="op">=</span> TabulatedModel.from_nk_tables(w_n, n_perp, w_k, k_perp, name<span class="op">=</span><span class="st">"E perpendicular c"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>poly <span class="op">=</span> EffectiveMediumModel(par, per, <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="st">"looyenga"</span>, name<span class="op">=</span><span class="st">"polycrystal"</span>)</span></code></pre></div>
 
 
 <!-- Closes the reading column opened by _gen/docs-nav.html, adds the right

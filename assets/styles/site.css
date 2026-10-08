@@ -263,3 +263,36 @@ td.c-no { color: var(--ink-faint); }
 .tfilter-note { font-size: 14px; color: var(--ink-soft); margin: -6px 0 12px; }
 .tfilter-note a { color: var(--teal); }
 .tcard[hidden] { display: none; }
+
+/* ---------------------------------------------------------------- the algorithm registry (site/registry/) */
+.rstats { grid-template-columns: repeat(3, 1fr); }
+.renv { font-size: 13px; color: var(--ink-faint); margin: -14px 0 24px; }
+.rcards .rgroup { grid-column: 1 / -1; margin: 18px 0 -4px; }
+.rcards .rgroup h2 { margin: 0 0 4px; }
+.rcards .rgroup .rblurb { font-size: 14px; color: var(--ink-soft); margin: 0; }
+.rcards .rgroup[hidden], .rcard[hidden] { display: none; }
+.rnat-numerics { color: var(--teal); border-color: var(--teal); }
+.rnat-metrology { color: #2f7d4f; border-color: #2f7d4f; }
+.rnat-dependency { color: #a56a12; border-color: #a56a12; }
+.rev-documented { color: #2f7d4f; border-color: #2f7d4f; }
+.rev-inferred-from-numbers { color: var(--teal); border-color: var(--teal); }
+.rev-unknown { color: var(--amber); border-color: var(--amber); }
+.rsheet .req { margin: 4px 0 2px; overflow-x: auto; font-size: 15px; }
+.rsheet .rcp { margin: 0 0 8px; }
+.rsheet .rcp:last-child { margin-bottom: 0; }
+.rsheet .rinputs { margin: 0 0 0 18px; padding: 0; }
+.rsheet .rinputs li { margin: 2px 0; }
+.rimpl { table-layout: fixed; width: 100%; }
+.rimpl th:first-child, .rimpl td:first-child { width: 64%; }
+.rimpl th:last-child, .rimpl td:last-child { width: 14%; }
+.rimpl td { vertical-align: top; }
+.rimpl code { white-space: pre-wrap; word-break: break-word; font-size: 12.5px; }
+.rimpl .rdoc, .rparams td, .rimpl td { font-size: 13.5px; }
+.rimpl .rdoc { color: var(--ink-soft); margin-top: 3px; }
+.rroutines, .rtests, .rchangelog { font-size: 14.5px; }
+.rcheck { font-size: 12.5px; line-height: 1.5; padding: 12px 14px; border: 1px solid var(--line); background: var(--tint); white-space: pre-wrap; word-break: break-word; }
+.rcheck code { white-space: pre-wrap; word-break: break-word; background: none; padding: 0; font-size: inherit; }
+.rverdict { font-size: 14px; border-left: 3px solid var(--line); padding-left: 10px; }
+.rverdict.ok { border-left-color: #2f7d4f; }
+.rverdict.bad { border-left-color: var(--amber); }
+@media (max-width: 900px) { .rstats { grid-template-columns: 1fr 1fr; } }
